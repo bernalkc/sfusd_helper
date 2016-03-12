@@ -1,19 +1,5 @@
 class CreateTables < ActiveRecord::Migration
   def change
-    create_table :families do |t|
-      t.string :parent_1
-      t.string :parent_2
-      t.string :address_1
-      t.string :address_2
-      t.string :address_3
-      t.string :address_4
-      t.string :email
-      t.string :language_1
-      t.string :language_2
-
-      t.timestamps null: false
-    end
-
     create_table :children do |t|
       t.string :name
       t.integer :age

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311073956) do
+ActiveRecord::Schema.define(version: 20160312195650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,18 +41,22 @@ ActiveRecord::Schema.define(version: 20160311073956) do
   add_index "children", ["family_id"], name: "index_children_on_family_id", using: :btree
 
   create_table "families", force: :cascade do |t|
-    t.string   "parent_1"
-    t.string   "parent_2"
-    t.string   "address_1"
-    t.string   "address_2"
-    t.string   "address_3"
-    t.string   "address_4"
-    t.string   "email"
-    t.string   "language_1"
-    t.string   "language_2"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
+
+  add_index "families", ["email"], name: "index_families_on_email", unique: true, using: :btree
+  add_index "families", ["reset_password_token"], name: "index_families_on_reset_password_token", unique: true, using: :btree
 
   create_table "grades", force: :cascade do |t|
     t.string   "program"
