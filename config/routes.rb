@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
-  devise_for :families
+  devise_for :families, controllers: {
+    registrations: 'families/registrations'
+  }
 
-  resources :families, only: [:show, :create, :edit, :update, :destroy]
+  resources :families
+
+  root 'families#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

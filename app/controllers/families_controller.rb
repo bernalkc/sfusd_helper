@@ -1,8 +1,12 @@
 class FamiliesController < ApplicationController
 
+  def index
+    @families = Family.all
+  end
+
   def show
     @family = Family.find_by(id: params[:id])
-    @current_user = current_user
+    # @current_user = current_user
   end
 
   def new
@@ -25,7 +29,6 @@ class FamiliesController < ApplicationController
 
   def update
     @family = Family.find_by(id: params[:id])
-
     @family.update_attributes(family_params)
   end
 
