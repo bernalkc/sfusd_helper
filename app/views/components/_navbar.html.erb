@@ -1,0 +1,31 @@
+<nav class="navbar navbar-fixed-top" id="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">SFUSD Select</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/" class="navigation-item">families</a></li>
+      </ul>
+      <% if current_family %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to family_path(current_family.id), :class => "navigation-item" do %><i class="fa fa-user fa-lg"></i> my profile<% end %></li>
+          <li><%= link_to destroy_family_session_path, :method => :delete, :class => "navigation-item" do %><i class="fa fa-sign-out fa-lg"></i> sign out<% end %></li>
+          <li id="contact"><a class="navigation-item">contact</a></li>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to new_family_registration_path, :class => "navigation-item" do %><i class="fa fa-users fa-lg"></i> sign up<% end %></li>
+          <li><%= link_to new_family_session_path, :class => "navigation-item" do %><i class="fa fa-sign-in fa-lg"></i> sign in<% end %></li>
+          <li id="contact"><a class="navigation-item">contact</a></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</nav>
