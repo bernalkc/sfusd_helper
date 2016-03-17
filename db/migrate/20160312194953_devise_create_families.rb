@@ -35,8 +35,8 @@ class DeviseCreateFamilies < ActiveRecord::Migration
       t.string    :city
       t.string    :zip_code
       t.string    :census_tract
-      t.decimal   :lat, precision: 9 , scale: 7
-      t.decimal   :lng, precision: 10, scale: 7
+      t.float     :latitude
+      t.float     :longitude
       
       t.timestamps null: false
     end
