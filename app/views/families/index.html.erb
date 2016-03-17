@@ -1,5 +1,5 @@
 hello world.
 
 <% @families.each do |family| %>
-  <h3><%= link_to family.email, family_path(family) %></h3>
+  <h3><%= link_to formatted_name(family), family_path(family) %></h3>
 <% end %>

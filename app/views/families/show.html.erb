@@ -1,5 +1,6 @@
 <%= link_to 'Families', families_path %>
-<h3><%= @family.first_name %> <%= @family.last_name %></h3>
+<!-- <h3><%= @family.first_name %> <%= @family.last_name %></h3> -->
+<h3><%= formatted_name(@family) %></h3>
 <hr/>
 <p><%= @family.address %></p>
 <p><%= @family.city %> <%= @family.zip_code %></p>
